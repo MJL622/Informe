@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Informe Práctica Linux</title>
+        <style>
+        /* Reset & base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f9fafb;
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            color: #000000;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .imagen-uniforme {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        object-fit: contain; /* Si quieres que las imágenes no se deformen */
+        }
+        .imagen-uniforme2 {
+        width: 150px;
+        height: auto;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        object-fit: contain; /* Si quieres que las imágenes no se deformen */
+        }
+        /* Layout */
+        header {
+            background: #000000;
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 2.2rem;
+        }
+        header p {
+            margin: 0.3rem 0 0;
+            font-weight: 400;
+            font-size: 1.1rem;
+            opacity: 0.85;
+        }
+        nav {
+            background: #f0f4f8;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+        }
+        nav a {
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        nav a:hover {
+            background-color: #d0e5ff;
+        }
+        main {
+            max-width: 900px;
+            margin: 2rem auto 3rem;
+            padding: 0 1rem;
+        }
+        section {
+            margin-bottom: 4rem;
+        }
+        h2 {
+            border-bottom: 3px solid #959396;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid #ddd;
+            background: #f0f4f8;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+            nav {
+                justify-content: center;
+                gap: 0.7rem;
+            }
+            nav a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+    </head>
+    <body>
+        <header>
+            <h1>Informe Práctica Linux</h1>
+        </header>
+        <nav>
+            <a href="#introduccion">Introducción</a>
+            <a href="#resumen">Resumen</a>
+            <a href="#desarrollo">Desarrollo</a>
+            <a href="#conclusion">Conclusión</a>
+            <a href="#anexos">Anexos</a>
+            <a href="#referencias">Referencias</a>
+        </nav>
+        <main>
+            <section id="introduccion">
+                <h2>Introducción</h2>
+                <p>
+                    En la actualidad, las tecnologías en el transporte de
+                    información y envío de datos entre equipos y servidores
+                    juegan un papel fundamental en los servidores. Es crucial
+                    comprender que el cableado debe estar realizado
+                    correctamente si se desarrollan desde el paso cero. Este
+                    informe detalla cómo se establece y controla un entorno de
+                    sistema de redes de conexión alámbrica, desde la
+                    configuración de servicios de red hasta la visualización
+                    final del desarrollo de la actividad.
+                </p>
+                <p>
+                    El objetivo principal de este trabajo es conocer las
+                    actividades desarrolladas en la práctica de sistema de
+                    redes, en este caso, Linux, para reforzar los aprendizajes y
+                    proporcionar a futuros administradores de sistemas una guía
+                    básica. A lo largo del documento se describirán las acciones
+                    llevadas a cabo, los problemas enfrentados y las soluciones
+                    aplicadas para alcanzar los objetivos propuestos, así como
+                    las experiencias adquiridas durante el desarrollo del
+                    proyecto.
+
+                </p>
+            </section>
+            <section id="resumen">
+                <h2>Resumen y Abstract</h2>
+                <p>
+                    <h3>Resumen</h3>
+                    Este informe detalla el montaje de una minired donde se
+                    estableció y verificó la conectividad entre dos computadores
+                    con sistemas operativos Windows. A su vez, cada computador
+                    contaba con una máquina virtual donde se implementó el
+                    sistema operativo Linux.
+                    La práctica comenzó con la conexión física de los
+                    dispositivos mediante cables UTP que previamente fueron
+                    realizados y la configuración de sus adaptadores Ethernet.
+                    Una parte importante fue la asignación de direcciones IP
+                    estáticas y máscaras de subred a cada máquina, la
+                    configuración de IP estática en Windows para la práctica fue
+                    de Clase C, aunque también se exploraron las diferentes
+                    clases de direcciones IP (A, B y C).
+                    Para la verificación de la conectividad, se emplearon
+                    algunos comandos significativos como lo son el ping, que se
+                    basa en el protocolo ICMP(Protocolo de Mensajes de Control
+                    de Internet) , y se comprobó la configuración IP utilizando
+                    ipconfig en Windows e ip a en Linux. Finalmente, se
+                    configuró la compartición de archivos y carpetas usando
+                    herramientas como Samba en Linux y las opciones nativas de
+                    Windows.
+                    Esta experiencia fue crucial para reforzar los conceptos
+                    clave del modelo TCP/IP, prestando especial atención a los
+                    niveles de Red y Enlace.
+                    <h4>Palabras clave: Redes, Conectividad, Linux, Windows,
+                        TCP/IP</h4>
+
+                    <h3>Abstract</h3>
+                    This report details the setup of a mini-grid where
+                    connectivity between two computers running Windows operating
+                    systems was established and verified. At the same time, each
+                    computer had a virtual machine where the Linux operating
+                    system was implemented.
+                    The practice began with the physical connection of the
+                    devices using UTP cables that were previously made and the
+                    configuration of their Ethernet adapters. An important part
+                    was the assignment of static IP addresses and subnet masks
+                    to each machine, the static IP configuration in Windows for
+                    the practice was Class C, although the different IP address
+                    classes (A, B and C) were also explored.
+                    For connectivity verification, some significant commands
+                    were used such as ping, which is based on the ICMP protocol
+                    (Internet Control Message Protocol), and the IP
+                    configuration was checked using ipconfig in Windows and ip a
+                    in Linux. Finally, file and folder sharing were configured
+                    using tools such as Samba on Linux and native Windows
+                    options.
+                    This experience was crucial to reinforce the key concepts of
+                    the TCP/IP model, paying special attention to the Network
+                    and Link levels.
+                    <h4>Keywords: Networking, Connectivity, Linux,
+                        Windows,TCP/IP</h4>
+
+                </p>
+            </section>
+            <section id="desarrollo">
+                <h2>Desarrollo</h2>
+                <p>
+                    En esta sección se detallan los pasos y procedimientos realizados durante la práctica,
+                    incluyendo la configuración de sistemas, comandos utilizados y la implementación de redes.
+                </p>
+                <h3>¿Cómo realizar un sistema de redes?</h3>
+                <p>
+                    Para iniciar el desarrollo que conlleva la instalación de un sistema de red, como apoyo se definirán puntos clave que fundamentarán el análisis y la comprensión del contenido. Primero, se abordará la definición de una arquitectura de red.
+                </p>
+                <p>
+                    La arquitectura de red es la forma en que los servicios y dispositivos de red se estructuran en conjunto para satisfacer las necesidades de conectividad de los dispositivos y a las aplicaciones cliente. En la arquitectura de red existen tres tipos de redes empresariales más habituales:
+                </p>
+                <ul>
+                    <li><strong>Redes para centro de datos:</strong> Que conectan servidores a fin de alojar una amplia gama de datos y aplicaciones para que estén disponibles para su uso.</li>
+                    <li><strong>Redes de acceso:</strong> Diseñadas para incorporar a los usuarios de distintas sucursales y ubicaciones.</li>
+                    <li><strong>Redes de área extendida (WAN):</strong> Conectan a los usuarios con las aplicaciones a distancias cortas o largas.</li>
+                </ul>
+                <p>
+                    Las redes deben admitir una amplia variedad de aplicaciones y servicios, así como funcionar a través de los distintos tipos de cables y dispositivos que componen la infraestructura física.
+                </p>
+                <h4>Estructura de la red</h4>
+                <p>
+                    Los tres elementos comunes de la comunicación son:
+                </p>
+                <ul>
+                    <li>El origen del mensaje.</li>
+                    <li>El canal.</li>
+                    <li>El destino del mensaje.</li>
+                </ul>
+                <p>
+                    Los dispositivos finales permiten la interacción entre los seres humanos y la red de comunicaciones. Los datos se originan con un dispositivo inicial, fluyen por la red y llegan a un dispositivo final.
+                </p>
+                <h4>Clasificación de las redes</h4>
+                <p>
+                    Según la tecnología de transmisión:
+                </p>
+                <ul>
+                    <li><strong>Redes por difusión (Broadcast Networks):</strong> Las estaciones comparten un canal. Ejemplo: Ethernet.</li>
+                    <li><strong>Redes punto a punto:</strong> Enlace entre equipos. Ejemplo: Enlace entre Routers.</li>
+                </ul>
+                <p>
+                    Según el tamaño:
+                </p>
+                <ul>
+                    <li>LAN (Redes de área local)</li>
+                    <li>WAN (Redes de área amplia)</li>
+                    <li>SAN (Red de área de almacenamiento)</li>
+                    <li>PAN (Red de área personal)</li>
+                    <li>CAN (Red de área de campus)</li>
+                </ul>
+                <h4>Principios de redes (Networking)</h4>
+                <p>
+                    Las personas utilizan diferentes tipos de redes todos los días:
+                </p>
+                <ul>
+                    <li>Sistemas de correo</li>
+                    <li>Sistemas telefónicos</li>
+                    <li>Sistemas de transporte público</li>
+                    <li>Redes de computadoras corporativas (Intranet y Extranet)</li>
+                    <li>Internet</li>
+                </ul>
+                <p>
+                    Una red puede ser tan simple como dos computadores conectados por un cable o tan complejas como cientos de computadores conectados a dispositivos que controlan el flujo de información.
+                </p>
+                <p>
+                    Una intranet es una plataforma digital cuyo objetivo es asistir a los empleados y terceros (outsourcing) en la generación de valor para la empresa, poniendo a su disposición activos como:
+                </p>
+                <ul>
+                    <li>Contenidos</li>
+                    <li>Archivos</li>
+                    <li>Procesos de negocio</li>
+                    <li>Herramientas</li>
+                </ul>
+                <p>
+                    Facilitando la colaboración y comunicación entre las personas y los equipos. La extranet es una red privada controlada, definida por Gartner como “una red corporativa basada en Internet que facilita las relaciones entre empresas al vincular una empresa con sus proveedores, clientes u otros socios comerciales externos”.
+                </p>
+                <p>
+                    Un cortafuegos es un dispositivo de seguridad de red que supervisa el tráfico de red entrante y saliente, y decide si permite o bloquea tráfico específico en función de un conjunto definido de reglas de seguridad.
+                </p>
+            
+                <h3>Principales pasos para realizar una red entre equipos</h3>
+            
+                <h4>Paso 1: Medio Físico</h4>
+                <p>
+                    Mediante un switch y cables directo RJ-45 se conectan los computadores.
+                </p>
+            
+                <h4>Paso 2: Asignación de direcciones IP estáticas en las PCs físicas</h4>
+                <ul>
+                    <li>"Configuración de red e Internet".</li>
+                    <li>"Cambiar opciones del adaptador".</li>
+                    <li>Clic derecho sobre tu adaptador Ethernet → "Propiedades".</li>
+                    <li>Selecciona Protocolo de Internet versión 4 (TCP/IPv4) → "Propiedades".</li>
+                </ul>
+                <img src="l1.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                <p>
+                    Se asigna una IP tipo C ya que es la recomendada para las conexiones de red privada y máquinas virtuales.
+                </p>
+                <ul>
+                    <li><strong>PC1:<img src="l2.png" alt="Descripción de la imagen 3" class="imagen-uniforme" /></strong> 192.168.1.2</li>
+                    <li><strong>PC2:<img src="l3.png" alt="Descripción de la imagen 3" class="imagen-uniforme" /></strong> 192.168.1.3</li>
+                </ul>
+            
+                <h4>Paso 3: Configuración de las máquinas virtuales en VirtualBox</h4>
+                <ol>
+                    <li>Ambas máquinas virtuales se apagan para configurar la red.</li>
+                    <li>Dentro de Oracle VirtualBox nos vamos a Configuración → Red en cada VM.</li>
+                    <li>En Adaptador 1, se elige:
+                        <ul>
+                            <li>"Habilitar adaptador de red".</li>
+                            <li>Modo de conexión: Adaptador puente (Bridge Adapter).</li>
+                            <li>Nombre: selecciona el adaptador Ethernet físico en este caso Realtek.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>
+                    Esto nos ayudará a que la VM comparta el mismo adaptador que la red física.
+                    <img src="l4.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                </p>
+            
+                <h4>Paso 4: Comandos en Terminales – Configurar y Verificar Conexión Entre VMs</h4>
+                <p>
+                    Se edita el archivo de configuración de red de la VM con Netplan:
+                    <img src="l5.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                </p>
+                <pre>
+                network:
+                  version: 2
+                  ethernets:
+                    enp0s3:
+                      dhcp4: no
+                      addresses: [192.168.100.1/24]
+                      nameservers:
+                        addresses: [8.8.8.8, 8.8.4.4]
+                </pre>
+                <pre>
+                network:
+                  version: 2
+                  ethernets:
+                    enp0s3:
+                      dhcp4: no
+                      addresses: [192.168.100.2/24]
+                      nameservers:
+                        addresses: [8.8.8.8, 8.8.4.4]
+                </pre>
+                <p>
+                    Una vez se configura la IP con el comando <code>ip a</code>, se realiza una comprobación con <code>ping</code>:
+                </p>
+                <ul>
+                    <li>PC1 a PC2<img src="l6.png" alt="Descripción de la imagen 3" class="imagen-uniforme" /></li>
+                    <li>PC2 a PC1<img src="l7.png" alt="Descripción de la imagen 3" class="imagen-uniforme" /></li>
+                </ul>
+            
+                <h4>Paso 5: Configurar tipo de IP</h4>
+                <p>
+                    Configuración con switch IP clase A:
+                </p>
+                <pre>
+                Netplan para cambiar la clase de IP a A
+                <img src="l8.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                </pre>
+                <p>
+                    Se verifica con <code>ip a</code> si el cambio fue efectivo <img src="l9.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />y se verifica con <code>ping</code> <img src="l10.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />.
+                </p>
+                <p>
+                    Configuración con switch IP clase B y clase C:
+                </p>
+                <pre>
+                # Configuración IP clase B
+                <img src="l11.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                <img src="l12.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />                    
+                <img src="l13.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                # Configuración IP clase C
+                <img src="l14.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                <img src="l15.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                <img src="l16.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                </pre>
+            
+                <h4>Paso 6: Crear carpeta compartida y compartir Archivos</h4>
+                <ol>
+                    <li>Se puede ingresar a los usuarios de la otra máquina virtual por SSH para comprobar la conectividad.</li>
+                    <img src="l17.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                    <li>Creamos la carpeta y configuramos su acceso con Samba:
+                        <img src="l18.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                        <ul>
+                            <li>Permisos de la carpeta.</li>
+                            <img src="l19.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                            <li>Contraseña de Samba para ingresar a la carpeta.</li>
+                            <img src="l20.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                        </ul>
+                    </li>
+                    <li>Una vez Samba esté instalado, los computadores se podrán ver en REDES.</li>
+                    <img src="l21.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                    <li>En este caso, admin b ha sido configurado como servidor; se usa el usuario admin y la contraseña de Samba.</li>
+                    <img src="l22.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                    <img src="l23.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                    <img src="l24.png" alt="Descripción de la imagen 3" class="imagen-uniforme" />
+                </ol>
+            </section>
+            
+
+            <section id="conclusion">
+                <h2>Conclusión</h2>
+                <p>
+                    La práctica realizada nos permitió comprender de forma aplicada los principios fundamentales del establecimiento de una red de área local, integrando tanto equipos físicos como entornos virtualizados. 
+                    A través del montaje, configuración y verificación de conectividad entre máquinas con sistemas operativos Windows y Linux, fue posible afianzar los conocimientos sobre direcciones IP, clases de red, configuración de adaptadores, uso de comandos de red y herramientas de compartición de archivos como Samba.
+                </p>
+                <p>
+                    Además, la experiencia de volver a trabajar en ambos entornos operativos fortaleció habilidades técnicas clave como la edición de archivos de configuración, el manejo de terminales, y la resolución de problemas de conectividad. 
+                    Esta actividad nos permitió también observar la importancia de una correcta planificación y configuración en redes, evidenciando cómo cada capa del modelo TCP/IP cumple una función específica y vital para lograr una comunicación eficiente.
+                </p>
+            </section>
+            <section id="anexos">
+                <h2>Anexos</h2>
+                <p>
+                    Se presentan documentos adicionales, gráficos y cualquier material complementario que
+                    respalde el contenido del informe.
+                </p>
+                <figure>
+                    <img src="1.gif" alt="Descripción de la imagen 1" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #ccc;" />
+                    <figcaption>Normas de Cables Cruzados o Directos</figcaption>
+                </figure>
+                <figure>
+                    <img src="Imagen2.png" alt="Descripción de la imagen 3" class="imagen-uniforme2" />
+                    <img src="3.png" alt="Descripción de la imagen 3" class="imagen-uniforme2" />
+                </figure>
+            </section>
+            <section id="referencias">
+                <h2>Referencias</h2>
+                <ul>
+                    <li>Documentos e imágenes enviados por el docente.</li>
+                    <li>Documentos e imágenes tomadas durante el proceso de desarrollo.</li>
+                    <li>Borrero Castellanos, J. C. (s.f.). <em>Arquitectura TCP/IP</em> [PDF]. Facultad de Ingeniería de Sistemas.</li>
+                    <li>BorreroJC. (s.f.). <em>Guía práctica para crear una minired</em>. Archivos e imágenes.</li>
+                    <li>Vivani.net. (2012, abril 11). Cableado estructurado: Cable directo y cable cruzado. <a href="https://vivani.net/2012/04/11/cableado-estructurado-cable-directo-cable-cruzado/" target="_blank">https://vivani.net/2012/04/11/cableado-estructurado-cable-directo-cable-cruzado/</a></li>
+                    <li>DeepL SE. (s.f.). <em>DeepL Translator</em>. <a href="https://www.deepl.com/translator" target="_blank">https://www.deepl.com/translator</a></li>
+                </ul>
+            </section>
+            
+        </main>
+        <footer>
+            &copy; 2025 - Informe Práctica Linux
+        </footer>
+    </body>
+</html>
